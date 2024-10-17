@@ -3,6 +3,7 @@ import GitHub from "./icons/GitHub.astro"
 import NextJS from "./icons/NextJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
 import Wordpress from "./icons/Wordpress.astro"
+import Woocommerce from "./icons/Woocommerce.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 
@@ -22,6 +23,11 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Wordpress,
   },
+  WOOCOMMERCE: {
+    name: "Woocommerce",
+    class: "bg-[#7e53b2] text-white",
+    icon: Woocommerce,
+  },
 }
 const PROJECTS = [
   {
@@ -29,17 +35,17 @@ const PROJECTS = [
     description:
       "Desde la concepción hasta la implementación, creamos soluciones digitales únicas que superan expectativas. Nuestro equipo experto utiliza tecnologías de vanguardia para desarrollar interfaces intuitivas, diseños atractivos y funcionalidades innovadoras. Nos comprometemos a transformar visiones en experiencias digitales memorables.",
     link: "https://islab.es",
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQGP9gVwygkzsQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1714131389318?e=1732147200&v=beta&t=LmRoZxi3-JPmOdeygJ39ltLwp4F2SaQTkTjtLkZMDto",
+    image: "https://scontent.fmad7-1.fna.fbcdn.net/v/t39.30808-6/419324232_122126796878101706_5543629529787951191_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=6fK1gbENRdUQ7kNvgGienlv&_nc_zt=23&_nc_ht=scontent.fmad7-1.fna&_nc_gid=AjVFf2X-8g3xHsbO9EIwtvx&oh=00_AYAYd-0rJnsBKwksfket_NecQFBjVxrXXiAsh3vpihx9nw&oe=671742AE",
     tags: [TAGS.WORDPRESS],
   },
-  /*{
-    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+  {
+    title: "AB Tenerife",
     description:
-      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://adventjs.dev",
-    image: "/projects/adventjs.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
-  }, */
+      "Página web de la Asociación de Bartenders de Tenerife, con Woocommerce para permitir a los usuarios asociarse totalmente online, con blog y todo tipo de información de campeonatos, eventos e historia.",
+    link: "https://abtenerife.com",
+    image: "/projects/abtenerife.webp",
+    tags: [TAGS.WORDPRESS, TAGS.WOOCOMMERCE],
+  }, 
 ]
 ---
 
