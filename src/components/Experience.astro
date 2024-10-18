@@ -1,5 +1,7 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
+import LinkedInIcon from "@/components/icons/LinkedIn.astro"
+import SocialPill from "@/components/SocialPill.astro"
 const EXPERIENCE = [
   {
     date: "Octubre 2024",
@@ -43,4 +45,11 @@ const EXPERIENCE = [
       </li>
     ))
   }
+</ol>
+
+<ol class="relative mt-16">
+  <SocialPill href="https://linkedin.com/in/aleelpalmero">
+    <LinkedInIcon class="size-4" />
+    Ver toda la experiencia
+  </SocialPill>
 </ol>
