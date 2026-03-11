@@ -90,21 +90,31 @@ const navItems = [
 
 <style>
   nav {
+    --nav-bg-from: rgba(255, 255, 255, 0);
+    --nav-bg-to: rgba(255, 255, 255, 0.5);
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
-  }
-
-  nav {
-    @apply dark:bg-gray-800/90 bg-white/50;
+    background-color: var(--nav-bg-to);
   }
 
   @keyframes nav-shadown {
-    0% {
-      @apply dark:bg-gray-800/0 bg-white/0;
+    from {
+      background-color: var(--nav-bg-from);
     }
+
     to {
-      @apply shadow-lg ring-1 backdrop-blur ring-white/10;
+      background-color: var(--nav-bg-to);
+      box-shadow:
+        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -4px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
+  }
+
+  :root.dark nav {
+    --nav-bg-from: rgba(31, 41, 55, 0);
+    --nav-bg-to: rgba(31, 41, 55, 0.9);
   }
 </style>

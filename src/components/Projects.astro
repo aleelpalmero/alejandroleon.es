@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets"
+import { getImage } from "astro:assets"
 import NextJS from "./icons/NextJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
 import Wordpress from "./icons/Wordpress.astro"
@@ -58,24 +58,34 @@ const PROJECTS = [
     tags: [TAGS.WORDPRESS],
   }, 
 ]
+
+const optimizedProjects = await Promise.all(
+  PROJECTS.map(async (project) => ({
+    ...project,
+    optimizedImage: await getImage({
+      src: project.image,
+      width: 960,
+      format: "webp",
+      quality: 72,
+    }),
+  })),
+)
 ---
 
 <div class="flex flex-col gap-y-16">
   {
-    PROJECTS.map(({ image, title, description, tags, link }) => (
-    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+    optimizedProjects.map(({ optimizedImage, title, description, tags, link }, index) => (
+    <article class="flex flex-col space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0">
   <div class="w-full md:w-1/2">
-    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-      <Image
-        src={image}
+    <div class="overflow-hidden rounded-xl shadow-xl lg:border lg:border-gray-800">
+      <img
+        src={optimizedImage.src}
         alt={`Captura del proyecto ${title}`}
-        width={1280}
-        height={720}
-        widths={[480, 640, 768, 1024, 1280]}
-        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 50vw"
-        quality={72}
+        width={optimizedImage.attributes.width}
+        height={optimizedImage.attributes.height}
         loading="eager"
-        class="object-cover object-top w-full h-56 aspect-video transition duration-500"
+        fetchpriority={index === 0 ? "high" : "auto"}
+        class="block w-full h-56 object-cover object-top"
       />
     </div>
   </div>
