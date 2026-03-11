@@ -77,7 +77,7 @@ const optimizedProjects = await Promise.all(
     optimizedProjects.map(({ optimizedImage, title, description, tags, link }, index) => (
     <article class="flex flex-col space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0">
   <div class="w-full md:w-1/2">
-    <div class="overflow-hidden rounded-xl shadow-xl lg:border lg:border-gray-800">
+    <div class="rounded-xl shadow-xl lg:border lg:border-gray-800">
       <img
         src={optimizedImage.src}
         alt={`Captura del proyecto ${title}`}
@@ -85,7 +85,7 @@ const optimizedProjects = await Promise.all(
         height={optimizedImage.attributes.height}
         loading="eager"
         fetchpriority={index === 0 ? "high" : "auto"}
-        class="block w-full h-56 object-cover object-top"
+        class="block w-full h-auto rounded-xl"
       />
     </div>
   </div>
