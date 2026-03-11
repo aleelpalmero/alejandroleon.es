@@ -1,10 +1,14 @@
 ---
+import { Image } from "astro:assets"
 import NextJS from "./icons/NextJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
 import Wordpress from "./icons/Wordpress.astro"
 import Woocommerce from "./icons/Woocommerce.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
+import abtImage from "@/assets/projects/abt.webp"
+import fabeImage from "@/assets/projects/fabe.webp"
+import islabImage from "@/assets/projects/islab.webp"
  
 const TAGS = {
   NEXT: {
@@ -34,7 +38,7 @@ const PROJECTS = [
     description:
       "Desde la concepción hasta la implementación, creamos soluciones digitales únicas que superan expectativas. Nuestro equipo experto utiliza tecnologías de vanguardia para desarrollar interfaces intuitivas, diseños atractivos y funcionalidades innovadoras. Nos comprometemos a transformar visiones en experiencias digitales memorables.",
     link: "https://islab.es",
-    image: "/projects/islab.webp",
+    image: islabImage,
     tags: [TAGS.WORDPRESS],
   },
   {
@@ -42,7 +46,7 @@ const PROJECTS = [
     description:
       "Página web de la Asociación de Bartenders de Tenerife, con Woocommerce para permitir a los usuarios asociarse totalmente online, con blog y todo tipo de información de campeonatos, eventos e historia.",
     link: "https://abtenerife.com",
-    image: "/projects/abt.webp",
+    image: abtImage,
     tags: [TAGS.WORDPRESS, TAGS.WOOCOMMERCE],
   },
   {
@@ -50,7 +54,7 @@ const PROJECTS = [
     description:
       "Renovación completa de la web, mucho más intuitiva, optimizada y responsive, donde se podrán consultar los campeonatos, históricos, próximos eventos, suscribirse al calendario y sincronizarlo con los de tu teléfono o PC, entre otras cosas...",
     link: "https://fabebarmans.com",
-    image: "/projects/fabe.webp",
+    image: fabeImage,
     tags: [TAGS.WORDPRESS],
   }, 
 ]
@@ -62,7 +66,18 @@ const PROJECTS = [
     <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
   <div class="w-full md:w-1/2">
     <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-      <img alt="#" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+      <Image
+        src={image}
+        alt={`Captura del proyecto ${title}`}
+        width={1280}
+        height={720}
+        widths={[480, 640, 768, 1024, 1280]}
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 50vw"
+        quality={72}
+        loading="lazy"
+        decoding="async"
+        class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+      />
     </div>
   </div>
 
